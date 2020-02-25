@@ -1,0 +1,5 @@
+---
+# defaults file for .
+user: vagrant
+user_path: "/home/{{ user }}"
+ansible_path: "/home/{{ user }}/.ansible/roles"

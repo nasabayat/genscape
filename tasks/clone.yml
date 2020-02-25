@@ -1,0 +1,10 @@
+---
+- name: clone repo of the task, devops.
+  git:
+    repo: 'https://github.com/nasabayat/devops.git'    
+    dest: "{{ user_path }}/devops"
+
+- name: clone repo to create vms usng vagrants
+  git:
+    repo: 'https://github.com/nasabayat/examples.git'
+    dest: "{{ user_path }}/example"
