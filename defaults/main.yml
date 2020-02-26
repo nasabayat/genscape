@@ -1,7 +1,11 @@
 ---
 # defaults file for .
 #user: vagrant
-user: naser
-user_path: "/home/{{ user }}"
-ansible_role_path: "/home/{{ user }}/.ansible/roles"
-repo_example_path: "{{ user_path }}/example/vagrant-multi-machine/"
+# copied all to vars/main.yml
+# local_user: naser
+# remote_user: vagrant
+# local_user_path: "/home/{{ local_user }}"
+# remote_user_path: "/home/{{ remote_user }}"
+
+# ansible_role_path: "/home/{{ local_user }}/.ansible/roles"
+# repo_example_path: "{{ local_user_path }}/example/vagrant-multi-machine/"

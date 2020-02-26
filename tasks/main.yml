@@ -1,4 +1,5 @@
 ---
 # tasks file for .
 #- include_tasks: clone.yml
-- include_tasks: installation.yml
+#- include_tasks: installation.yml
+- include_tasks: vagrant.yml

@@ -1,2 +1,10 @@
 ---
 # vars file for .
+
+local_user: naser
+remote_user: vagrant
+local_user_path: "/home/{{ local_user }}"
+remote_user_path: "/home/{{ remote_user }}"
+
+ansible_role_path: "/home/{{ local_user }}/.ansible/roles"
+repo_example_path: "{{ local_user_path }}/example/vagrant-multi-machine/"
