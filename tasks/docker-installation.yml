@@ -1,0 +1,47 @@
+---
+- name: Installing docker and docker-compose on vms
+  apt:
+    update_cache: yes
+    #name: apt-transport-https
+    state: present
+    name: "{{ item }}"
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+#    - Software-properties-common   not possible to install, no difference manully or using ansible
+
+- name: curl
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+- name: lsb_release
+  shell: 
+    cmd: /usr/bin/lsb_release -cs
+  register: lsbrelease
+# - debug:
+#     var: lsbrelease.stdout
+
+# Add specified repository into sources list using specified filename.
+- apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsbrelease.stdout }} stable" 
+    state: present
+
+- name: Installing docker
+  apt:
+    state: present
+    name: "{{ item }}"
+  with_items:
+    - docker-ce 
+    - docker-ce-cli 
+    - containerd.io
+
+- name: Installing docker-compose
+  apt:
+    name: docker-compose 
+    state: present
+
+- name: Add the user 'vagrant' to group of 'docker'
+  user:
+    name: vagrant
+    group: docker     
