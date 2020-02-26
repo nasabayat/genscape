@@ -3,3 +3,7 @@
 - include_tasks: clone.yml
 - include_tasks: installation.yml
 - include_tasks: vagrant.yml
+- include_tasks: docker-installation.yml
+- include_tasks: docker-swarm.yml
+- include_tasks: docker-swarm-addnode.yml
+

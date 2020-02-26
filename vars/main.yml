@@ -8,3 +8,8 @@ remote_user_path: "/home/{{ remote_user }}"
 
 ansible_role_path: "/home/{{ local_user }}/.ansible/roles"
 repo_example_path: "{{ local_user_path }}/example/vagrant-multi-machine/"
+
+ip_manager_1: 192.168.99.11
+ip_manager_2: 192.168.99.12
+ip_manager_3: 192.168.99.13
+ip_worker_1: 192.168.99.14

@@ -3,7 +3,7 @@
 #user: vagrant
 # copied all to vars/main.yml
 # local_user: naser
-# remote_user: vagrant
+#remote_user: vagrant
 # local_user_path: "/home/{{ local_user }}"
 # remote_user_path: "/home/{{ remote_user }}"
 
