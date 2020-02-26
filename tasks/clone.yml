@@ -8,7 +8,7 @@
   git:
     repo: 'https://github.com/nasabayat/examples.git'
     dest: "{{ user_path }}/example"
-- name: clone ansible genscape role
-  git:
-    repo: 'https://github.com/nasabayat/genscape.git'
-    dest: "{{ ansible_role_path }}/genscape"
+    #- name: clone ansible genscape role
+    #git:
+    #repo: 'https://github.com/nasabayat/genscape.git'
+    #dest: "{{ ansible_role_path }}/genscape"

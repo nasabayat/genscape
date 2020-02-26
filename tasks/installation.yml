@@ -1,11 +1,11 @@
 ---
-- name: nstall the Vagrant provisioning plugin Vai
-  shell: vagrant plugin install vai
+# - name: nstall the Vagrant provisioning plugin Vai
+#   shell: vagrant plugin install vai
 
 - name: create 4 vms using vagrant
   shell: |
     cd "{{ repo_example_path }}"
     vagrant up
-  register: app
-- debug:
-    var: app
+#   register: app
+# - debug:
+#     var: app
