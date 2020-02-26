@@ -4,7 +4,11 @@
     repo: 'https://github.com/nasabayat/devops.git'    
     dest: "{{ user_path }}/devops"
 
-- name: clone repo to create vms usng vagrants
+- name: clone repo to create vms usng vagrants, example
   git:
     repo: 'https://github.com/nasabayat/examples.git'
     dest: "{{ user_path }}/example"
+- name: clone ansible genscape role
+  git:
+    repo: 'https://github.com/nasabayat/genscape.git'
+    dest: "{{ ansible_role_path }}/genscape"

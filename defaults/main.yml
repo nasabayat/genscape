@@ -1,5 +1,7 @@
 ---
 # defaults file for .
-user: vagrant
+#user: vagrant
+user: naser
 user_path: "/home/{{ user }}"
-ansible_path: "/home/{{ user }}/.ansible/roles"
+ansible_role_path: "/home/{{ user }}/.ansible/roles"
+repo_example_path: "{{ user_path }}/example/vagrant-multi-machine/"
