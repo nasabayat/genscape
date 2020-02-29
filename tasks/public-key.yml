@@ -1,8 +1,13 @@
+- name: Wait 180 seconds, but only start checking after 30 seconds
+  wait_for_connection:
+    delay: 30
+    timeout: 180
+
 - name: adding public key to created vms
   shell: |
     cd "{{ repo_example_path }}"
     vagrant ssh -c  \
-    'echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDkhDRij1LsdAhR2zSXkJXhd7LeyRLtMRVvje8Gu8v5aUMB7DN0J52I79KrsaUBsSBs2+LqPB3HMdqAxWiYFAzKyh4jWKTZg/HdgkZM1lhDwrH8gnI0pXJsBL5+QbQsFo6ljcrqvn9jV+xZVic68l+pAVHae6zMoN2GP6QNNI2jO1ZVTkuxbLswYkww93oXLN9I8rNOrPe/fvmm2csIACCiPQUscmqhowecCZUCDOw5ac2m1KJMMLMOuF9zGJUjEJYrhKhGpp8d6fHxjSKq305ebPtrHPT1OXgdJ/HjS6pl57XGeLjKSycc9d5WmCwFkHxm30ARmtlI1A2vfrkAeCxB naser@naser-Latitude" >> {{ remote_user_path }}/.ssh/authorized_keys' \ 
+    'echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDkhDRij1LsdAhR2zSXkJXhd7LeyRLtMRVvje8Gu8v5aUMB7DN0J52I79KrsaUBsSBs2+LqPB3HMdqAxWiYFAzKyh4jWKTZg/HdgkZM1lhDwrH8gnI0pXJsBL5+QbQsFo6ljcrqvn9jV+xZVic68l+pAVHae6zMoN2GP6QNNI2jO1ZVTkuxbLswYkww93oXLN9I8rNOrPe/fvmm2csIACCiPQUscmqhowecCZUCDOw5ac2m1KJMMLMOuF9zGJUjEJYrhKhGpp8d6fHxjSKq305ebPtrHPT1OXgdJ/HjS6pl57XGeLjKSycc9d5WmCwFkHxm30ARmtlI1A2vfrkAeCxB naser@naser-Latitude" >> {{ remote_user_path }}/.ssh/authorized_keys' \
     "{{ item }}"
   with_items:
     - manager-1

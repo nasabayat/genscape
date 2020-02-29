@@ -3,13 +3,15 @@
 #   shell: "docker swarm join --token \
 #          {{ hostvars['manager-1']['result']['swarm_facts']['JoinTokens']['Manager'] }} \
 #          {{ hostvars['manager-1']['rs']['stdout'] }}"
-
   
 - name: Add nodes
   vars: 
     var1: "{{ hostvars['manager-1']['rs']['stdout'] }}"
   docker_swarm:
     state: join
-    advertise_addr: "{{ ip_manager_2 }}"
+    advertise_addr: "{{ item }}"
     join_token: "{{ hostvars['manager-1']['result']['swarm_facts']['JoinTokens']['Manager'] }}"
-    remote_addrs: [ '"{{ var1 }}"' ]
+    remote_addrs: [ '{{ var1 }}' ]
+  with_items:
+    - ip_manager_2
+    - ip_manager_3

@@ -1,27 +1,14 @@
 ---
-# # clone repo, creating vms, copy PK to vms
-# - include_tasks: "{{ item }}"
-#   with_items:
-#     - clone.yml
-#     - vm-creation.yml
-#     - public-key.yml
-#   when: hosts_var  == "localhost" 
+# hosts: localhost user: naser
+# - include_tasks:  clone.yml
+# - include_tasks:  vm-creation.yml
+# - include_tasks:  public-key.yml
 
-# # install docker and docker-compose on vms
-# - include_tasks: docker-installation.yml 
-#   when:  hosts_var  == "dockerswarmcluster" 
+# hosts: dockerswarmcluster user: vagrant become: yes
+# - include_tasks:  docker-installation.yml 
 
-# # config manager-1 as manager, set manager and worker token as fact variable
-# - include_tasks: docker-swarm.yml
-#   when: hosts_var  == "manager-1" 
+# hosts: manager-1 user: vagrant
+# - include_tasks:  docker-swarm.yml
 
-# # Add manager
-# - include_tasks: docker-swarm-addnode.yml
-#   when: hosts_var  == "manager-2-3"
-
-# - include: clone.yml
-# - include: vm-creation.yml
-# - include: public-key.yml
-# - include: docker-installation.yml 
-# - include: docker-swarm.yml
-# - include: docker-swarm-addnode.yml
+# hosts: manager-2 & 3 user: vagrant
+# - include_tasks: docker-swarm-join-manager.yml
