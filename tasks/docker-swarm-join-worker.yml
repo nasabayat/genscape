@@ -1,0 +1,10 @@
+- name: Join worker
+  vars: 
+    var2: "{{ hostvars['manager-1']['rs']['stdout'] }}"
+  docker_swarm:
+    state: join
+    advertise_addr: "{{ item }}"
+    join_token: "{{ hostvars['manager-1']['result']['swarm_facts']['JoinTokens']['Worker'] }}"
+    remote_addrs: [ '{{ var2 }}' ]
+  with_items:
+    - ip_worker_1
