@@ -1,0 +1,24 @@
+---
+- name: Init a new swarm with default parameter as manager
+  docker_swarm:
+    state: present
+    advertise_addr: "{{ ip_manager_1 }}"
+
+- name: Get info on Docker Swarm
+  docker_swarm_info:
+  ignore_errors: yes
+  register: result
+# - debug: 
+#     #var: result.swarm_facts.JoinTokens.Worker
+#     var: result
+#     #   var: result.swarm_facts.JoinTokens.Manager
+
+- name: extract manager advertise address
+  shell: docker node inspect manager-1 --pretty |grep -A2 "Manager Status"| grep Address |awk '{print $2}'
+  register: rs
+
+# - name: set JoinTokens.Worker/Manager as fact
+#   set_fact:
+#     joinTokens_manager: "{{ result.swarm_facts.JoinTokens.Manager }}"
+#     joinTokens_worker: "{{ result.swarm_facts.JoinTokens.Worker }}"   
+#     manager_addr: "{{ rs.stdout }}"
