@@ -1,9 +1,27 @@
 ---
-# tasks file for .
-- include_tasks: clone.yml
-- include_tasks: installation.yml
-- include_tasks: vagrant.yml
-- include_tasks: docker-installation.yml
-- include_tasks: docker-swarm.yml
-- include_tasks: docker-swarm-addnode.yml
+# # clone repo, creating vms, copy PK to vms
+# - include_tasks: "{{ item }}"
+#   with_items:
+#     - clone.yml
+#     - vm-creation.yml
+#     - public-key.yml
+#   when: hosts_var  == "localhost" 
 
+# # install docker and docker-compose on vms
+# - include_tasks: docker-installation.yml 
+#   when:  hosts_var  == "dockerswarmcluster" 
+
+# # config manager-1 as manager, set manager and worker token as fact variable
+# - include_tasks: docker-swarm.yml
+#   when: hosts_var  == "manager-1" 
+
+# # Add manager
+# - include_tasks: docker-swarm-addnode.yml
+#   when: hosts_var  == "manager-2-3"
+
+# - include: clone.yml
+# - include: vm-creation.yml
+# - include: public-key.yml
+# - include: docker-installation.yml 
+# - include: docker-swarm.yml
+# - include: docker-swarm-addnode.yml
