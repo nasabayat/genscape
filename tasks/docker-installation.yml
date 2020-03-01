@@ -53,4 +53,7 @@
     name: "{{ item }}"
   with_items:
     - python-pip
-    - jsondiff
+    
+# Install jsondiff
+- pip:
+    name: jsondiff

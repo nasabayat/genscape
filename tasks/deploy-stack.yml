@@ -4,5 +4,4 @@
     state: present
     name: app
     compose:
-      - /home/vagrant/devops/docker-compose-stack.yml
-      #  - ../../../../src/github.com/devops/docker-compose-stack.yml
+      - /home/vagrant/docker-compose-stack.yml
