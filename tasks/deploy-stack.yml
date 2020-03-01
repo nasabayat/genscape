@@ -1,0 +1,8 @@
+---
+- name: Deploy stack from a compose file
+  docker_stack:
+    state: present
+    name: app
+    compose:
+      - /home/vagrant/devops/docker-compose-stack.yml
+      #  - ../../../../src/github.com/devops/docker-compose-stack.yml
