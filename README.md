@@ -39,5 +39,7 @@ An optional section for the role authors to include contact information, or a we
 # genscape
 
 https://github.com/debops/examples
+
 https://github.com/debops/examples/tree/master/vagrant-multi-machine
+
 https://www.youtube.com/watch?v=bU2NNFJ-UXA&t=216s
